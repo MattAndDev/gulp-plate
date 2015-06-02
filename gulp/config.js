@@ -46,6 +46,11 @@ module.exports = {
     dest: dest + "/"
   },
 
+  markdown: {
+    src: src + "/markdown/*.md",
+    dest: src + "/html/partials/"
+  },
+
   jslint: {
     srcJs: src + '/js/**/*.js',
     srcCoffee: src + '/js/**/*.coffee'

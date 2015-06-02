@@ -38,5 +38,9 @@ gulp.task('watch', ['clean'], function() {
   watch([config.markup.src, config.markup.partialsSrc], function(){
     runSequence('markup', browserSync.reload);
   });
+
+  watch(config.markdown.src, function(){
+    runSequence('markdown', browserSync.reload);
+  });
   // Watchify will watch and recompile our JS, so no need to gulp.watch it
 });
