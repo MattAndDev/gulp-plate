@@ -6,7 +6,7 @@
         ...
     &lt;/div&gt;
 &lt;/section&gt;
-</code></pre><h3 id=grid>Grid</h3><p>Gulp Plate offers you a default grid system of 24 columns with 30px gutters. All grid classes are prefixed with a <code>.g-</code> class.</p><p>You can change the default values inside <code>src/sass/base/_vars.scss</code>. You can define the number of columns for your grid system as well as the gutter size on different media queries. The dedicated mixin will take care of all classes generation.</p><pre><code class=lang-scss>// _vars.scss
+</code></pre><h3 id=grid>Grid</h3><p>Gulp Plate offers you a default grid system of 24 columns with 30px gutters. All grid classes are prefixed with a <code>.g-</code> class.</p><p>You can change the default values inside <code>src/sass/base/_vars.scss</code>. You can define the number of columns for your grid system as well as the gutter size on every media queries. The dedicated mixin will take care of all classes generation.</p><pre><code class=lang-scss>// _vars.scss
 
 $grid-columns: 24;
 
@@ -87,10 +87,15 @@ $grid-config-lg: (
   margin bottom of 24px on medium screens
   margin bottom of 48px on large screens
 &lt;/div&gt;
-</code></pre><p>When not defined the <strong>property position</strong> is applied to all position: top, right, bottom and left.</p><p>When not defined the <strong>property value</strong> is equal to the base dimension <code>$space</code>, in our case 24px. If you would like to remove it simply add the property valur <code>-none</code>:</p><pre><code class=lang-html>&lt;div class=&quot;u-md-push-none&quot;&gt;
+</code></pre><p>When not defined the <strong>property position</strong> is applied to all position: top, right, bottom and left.</p><p>When not defined the <strong>property value</strong> is equal to the base dimension <code>$space</code>, in our case 24px. If you would like to remove it simply add the property value <code>-none</code>:</p><pre><code class=lang-html>&lt;div class=&quot;u-md-push-none&quot;&gt;
   margin bottom of 0px
 &lt;/div&gt;
-</code></pre></main></div></div><script src=js/main.js></script><script>
+</code></pre><h3 id=overflow-missing->Overflow (missing)</h3><ul><li>utility prefix <code>.u-</code></li><li>width key <code>sm-</code>, <code>md-</code> or <code>lg-</code></li><li>property-name <code>overflow-</code></li><li>property-value <code>hide</code> or <code>scroll</code></li></ul><pre><code class=lang-html>&lt;div class=&quot;u-sm-overflow-scroll u-overflow-hide&quot;&gt;
+  Content will make it&#39;s parent have a scrollbar if it is to large on small screens
+
+  Content will not overflow the parent if it is too large on screens that are not small
+&lt;/div&gt;
+</code></pre><p>Keep in mind that when using <code>u-overflow-scroll</code> a height needs to be defined to work properly.</p><h3 id=float-missing->Float (missing)</h3><ul><li>utility prefix <code>.u-</code></li><li>width key <code>sm-</code>, <code>md-</code> or <code>lg-</code></li><li>property-name <code>float-</code></li><li>property-value <code>rgt</code>, <code>lft</code> or <code>none</code></li></ul><h3 id=images-missing->Images (missing)</h3><h3 id=show-hide-missing->Show/hide (missing)</h3><h3 id=show-only-for-screen-readers-missing->Show only for screen readers (missing)</h3><h3 id=clear-missing->Clear (missing)</h3><h3 id=clearfix-missing->Clearfix (missing)</h3><h3 id=headings-missing->Headings (missing)</h3><h3 id=font-weight-missing-light-and-ultra-bold->Font weight (missing light and ultra-bold)</h3><ul><li>utility prefix <code>.u-</code></li><li>width key <code>sm-</code>, <code>md-</code> or <code>lg-</code></li><li>property-name <code>fw-</code></li><li>property-value <code>normal</code>, <code>semi</code> or <code>bold</code></li></ul></main></div></div><script src=js/main.js></script><script>
 	(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
 	function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
 	e=o.createElement(i);r=o.getElementsByTagName(i)[0];

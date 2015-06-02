@@ -28,7 +28,7 @@ To center the content inside a section use a `.l-container` class.
 
 Gulp Plate offers you a default grid system of 24 columns with 30px gutters. All grid classes are prefixed with a `.g-` class.
 
-You can change the default values inside `src/sass/base/_vars.scss`.  You can define the number of columns for your grid system as well as the gutter size on different media queries. The dedicated mixin will take care of all classes generation. 
+You can change the default values inside `src/sass/base/_vars.scss`.  You can define the number of columns for your grid system as well as the gutter size on every media queries. The dedicated mixin will take care of all classes generation. 
 
 ```scss
 // _vars.scss
@@ -178,12 +178,56 @@ It may sounds complicated but it isn't at all. Let's try to see this class namin
 
 When not defined the **property position** is applied to all position: top, right, bottom and left. 
 
-When not defined the **property value** is equal to the base dimension `$space`, in our case 24px. If you would like to remove it simply add the property valur `-none`:
+When not defined the **property value** is equal to the base dimension `$space`, in our case 24px. If you would like to remove it simply add the property value `-none`:
 
 ```html
 <div class="u-md-push-none">
   margin bottom of 0px
 </div>
 ```
+
+### Overflow (missing)
+
+- utility prefix `.u-`
+- width key `sm-`, `md-` or `lg-`
+- property-name `overflow-`
+- property-value `hide` or `scroll`
+
+```html
+<div class="u-sm-overflow-scroll u-overflow-hide">
+  Content will make it's parent have a scrollbar if it is to large on small screens
+
+  Content will not overflow the parent if it is too large on screens that are not small
+</div>
+```
+
+Keep in mind that when using `u-overflow-scroll` a height needs to be defined to work properly.
+
+### Float (missing)
+
+- utility prefix `.u-`
+- width key `sm-`, `md-` or `lg-`
+- property-name `float-`
+- property-value `rgt`, `lft` or `none`
+
+### Images (missing)
+
+### Show/hide (missing)
+
+### Show only for screen readers (missing)
+
+### Clear (missing)
+
+### Clearfix (missing)
+
+### Headings (missing)
+
+### Font weight (missing light and ultra-bold)
+
+- utility prefix `.u-`
+- width key `sm-`, `md-` or `lg-`
+- property-name `fw-`
+- property-value `normal`, `semi` or `bold`
+
 
 
