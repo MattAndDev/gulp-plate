@@ -15,4 +15,128 @@
 &lt;/section&gt;
 </code></pre>
 <h3 id="grid">Grid</h3>
-<p>The grid system has 24 columns with 30px gutters by default. All grid classes are prefixed with a <code>.g-</code> class.</p>
+<p>Gulp Plate offers you a default grid system of 24 columns with 30px gutters. All grid classes are prefixed with a <code>.g-</code> class.</p>
+<p>You can change the default values inside <code>src/sass/base/_vars.scss</code>.  You can define the number of columns for your grid system as well as the gutter size on different media queries. The dedicated mixin will take care of all classes generation. </p>
+<pre><code class="lang-scss">// _vars.scss
+
+$grid-columns: 24;
+
+$grid-config-xs: (
+  &quot;name&quot;: &quot;&quot;,
+  &quot;cols&quot;: $grid-columns,
+  &quot;gutter&quot;: 16px,
+  &quot;bp&quot;: false,
+  &quot;off&quot;: false,
+  &quot;pull&quot;: false,
+  &quot;push&quot;: false
+);
+
+$grid-config-sm: (
+  &quot;name&quot;: &quot;sm&quot;,
+  &quot;cols&quot;: $grid-columns,
+  &quot;gutter&quot;: 20px,
+  &quot;bp&quot;: $bp-sm,
+  &quot;off&quot;: true,
+  &quot;pull&quot;: true,
+  &quot;push&quot;: true
+);
+
+$grid-config-md: (
+  &quot;name&quot;: &quot;md&quot;,
+  &quot;cols&quot;: $grid-columns,
+  &quot;gutter&quot;: 22px,
+  &quot;bp&quot;: $bp-md,
+  &quot;off&quot;: true,
+  &quot;pull&quot;: true,
+  &quot;push&quot;: true
+);
+
+$grid-config-lg: (
+  &quot;name&quot;: &quot;lg&quot;,
+  &quot;cols&quot;: $grid-columns,
+  &quot;gutter&quot;: 30px,
+  &quot;bp&quot;: $bp-lg,
+  &quot;off&quot;: true,
+  &quot;pull&quot;: true,
+  &quot;push&quot;: true
+);
+</code></pre>
+<p>But lets see how we can use these generated classes. To create a grid you have to wrap all grid units in a <code>.g-row</code> class:</p>
+<pre><code class="lang-html">&lt;div class=&quot;g-row&quot;&gt;
+    Grid columns go here.
+&lt;/div&gt;
+</code></pre>
+<p>Grid columns need the base grid class <code>.g</code> and a width definiton e.g. <code>.g-12</code>:</p>
+<pre><code class="lang-html">&lt;div class=&quot;g-row&quot;&gt;
+  &lt;div class=&quot;g g-12&quot;&gt;Span 12 columns&lt;/div&gt;
+  &lt;div class=&quot;g g-12&quot;&gt;Span 12 columns&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>If the columns need to change depeneding on the screen size you can use a <strong>width key</strong> in the class name.</p>
+<p>The default keys are:</p>
+<ul>
+<li><code>-sm-</code> Small screens start at a browser width of 768px</li>
+<li><code>-md-</code> Medium screens start at a browser width of 966px</li>
+<li><code>-lg-</code> Large screens start at a browser width of 1290px</li>
+</ul>
+<p>You can change them always inside <code>_vars.scss</code>.</p>
+<p>If no <strong>width key</strong> is given the rule will apply from 0px onward. See the example below to get a better impression:</p>
+<pre><code class="lang-html">&lt;div class=&quot;g-row&quot;&gt;
+  &lt;div class=&quot;g g-12 g-sm-8 g-md-4 g-lg-2&quot;&gt;
+    span 12 columns on mobile
+    span 8 columns on small screens
+    span 4 columns on medium screens
+    span 2 columns on large screens
+  &lt;/div&gt;
+  &lt;div class=&quot;g g-12 g-sm-16 g-md-20 g-lg-22&quot;&gt;
+    span 12 columns on mobile
+    span 16 columns on small screens
+    span 20 columns on medium screens
+    span 22 columns on large screens
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>By default grid units span 24 columns (100% width), if you want the columns to span 12 starting on medium sized screens only add classes for that size:</p>
+<pre><code class="lang-html">&lt;div class=&quot;g-row&quot;&gt;
+  &lt;div class=&quot;g g-md-12&quot;&gt;
+    span 24 columns on mobile
+    span 24 columns on small screens
+    span 12 columns on medium screens
+    span 12 columns on large screens
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4 id="offset">Offset</h4>
+<p>The grid system includes offset classes to create spacing:</p>
+<pre><code class="lang-html">&lt;div class=&quot;g-row&quot;&gt;
+  &lt;div class=&quot;g g-12 g-off-4&quot;&gt;
+    span 12, start after the 4 col
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4 id="clearing-floats">Clearing floats</h4>
+<p>...</p>
+<h2 id="utility-classes">Utility classes</h2>
+<p>These classes provide a fast way to create new layouts without much effort. All utility classes, with the exception of headings, are prefixed with <code>.u-</code>. Most utility classes are responsive which means that you can combine them with a <strong>width key</strong> (<code>-sm-</code>, <code>-md-</code>, <code>-lg-</code>) to target different screen sizes.</p>
+<h3 id="dimensions">Dimensions</h3>
+<p>Dimension utilities help you handle whitespace between elements. Classnames are composed by:</p>
+<ul>
+<li>utility prefix <code>.u-</code></li>
+<li>width key <code>sm-</code>, <code>md-</code> or <code>lg-</code></li>
+<li>property name <code>push-</code>, <code>pull-</code> or <code>padd-</code></li>
+<li>property position <code>top-</code>, <code>rgt-</code>, <code>btm-</code>, <code>lft-</code>, <code>horz-</code> or <code>vert-</code></li>
+<li>property value <code>none</code>, <code>quarter</code>, <code>half</code>, <code>double</code></li>
+</ul>
+<p>The base dimesion <code>$space</code> is defined as always in the <code>_vars.scss</code>. The default value is 24px.</p>
+<p>It may sounds complicated but it isn&#39;t at all. Let&#39;s try to see this class naming in action:</p>
+<pre><code class="lang-html">&lt;div class=&quot;u-md-push-btm u-lg-push-btm-double&quot;&gt;
+  margin bottom of 24px on medium screens
+  margin bottom of 48px on large screens
+&lt;/div&gt;
+</code></pre>
+<p>When not defined the <strong>property position</strong> is applied to all position: top, right, bottom and left. </p>
+<p>When not defined the <strong>property value</strong> is equal to the base dimension <code>$space</code>, in our case 24px. If you would like to remove it simply add the property valur <code>-none</code>:</p>
+<pre><code class="lang-html">&lt;div class=&quot;u-md-push-none&quot;&gt;
+  margin bottom of 0px
+&lt;/div&gt;
+</code></pre>
