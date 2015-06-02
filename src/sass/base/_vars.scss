@@ -115,10 +115,10 @@ $grid-config-lg: (
 //============================================
 
 $dimension-utility-sizes: (
-  "sm": $space-quarter,
-  "md": $space-half,
+  "quarter": $space-quarter,
+  "half": $space-half,
   "": $space,
-  "lg": $space * 2,
+  "double": $space * 2,
   "none": 0
 );
 
