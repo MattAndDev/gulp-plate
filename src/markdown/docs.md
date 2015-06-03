@@ -28,52 +28,34 @@ To center the content inside a section use a `.l-container` class.
 
 Gulp Plate offers you a default grid system of 24 columns with 30px gutters. All grid classes are prefixed with a `.g-` class.
 
-You can change the default values inside `src/sass/base/_vars.scss`.  You can define the number of columns for your grid system as well as the gutter size on every media queries. The dedicated mixin will take care of all classes generation. 
+You can change the default values inside `src/sass/base/_vars.scss`.  You can define the width, the number of columns for your grid system as well as the gutter size on every media queries. The dedicated mixin will take care of all classes generation. 
 
 ```scss
 // _vars.scss
 
+// Layout
+//============================================
+
+// XS
+$layout-gutter-xs: 16px;
+$layout-width-xs:  416px;
+
+// SM
+$layout-gutter-sm: 20px;
+$layout-width-sm:  728px;
+
+// MD
+$layout-gutter-md: 22px;
+$layout-width-md:  966px;
+
+// LG
+$layout-gutter-lg: 30px;
+$layout-width-lg:  1290px;
+
+// Grid
+//============================================
+
 $grid-columns: 24;
-
-$grid-config-xs: (
-  "name": "",
-  "cols": $grid-columns,
-  "gutter": 16px,
-  "bp": false,
-  "off": false,
-  "pull": false,
-  "push": false
-);
-
-$grid-config-sm: (
-  "name": "sm",
-  "cols": $grid-columns,
-  "gutter": 20px,
-  "bp": $bp-sm,
-  "off": true,
-  "pull": true,
-  "push": true
-);
-
-$grid-config-md: (
-  "name": "md",
-  "cols": $grid-columns,
-  "gutter": 22px,
-  "bp": $bp-md,
-  "off": true,
-  "pull": true,
-  "push": true
-);
-
-$grid-config-lg: (
-  "name": "lg",
-  "cols": $grid-columns,
-  "gutter": 30px,
-  "bp": $bp-lg,
-  "off": true,
-  "pull": true,
-  "push": true
-);
 ```
 
 But lets see how we can use these generated classes. To create a grid you have to wrap all grid units in a `.g-row` class:
@@ -97,11 +79,11 @@ If the columns need to change depeneding on the screen size you can use a **widt
 
 The default keys are:
 
-- `-sm-` Small screens start at a browser width of 768px
+- `-sm-` Small screens start at a browser width of 728px
 - `-md-` Medium screens start at a browser width of 966px
 - `-lg-` Large screens start at a browser width of 1290px
 
-You can change them always inside `_vars.scss`.
+As mention above you can change these values inside `_vars.scss`.
 
 If no **width key** is given the rule will apply from 0px onward. See the example below to get a better impression:
 

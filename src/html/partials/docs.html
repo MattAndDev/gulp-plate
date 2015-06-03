@@ -16,50 +16,32 @@
 </code></pre>
 <h3 id="grid">Grid</h3>
 <p>Gulp Plate offers you a default grid system of 24 columns with 30px gutters. All grid classes are prefixed with a <code>.g-</code> class.</p>
-<p>You can change the default values inside <code>src/sass/base/_vars.scss</code>.  You can define the number of columns for your grid system as well as the gutter size on every media queries. The dedicated mixin will take care of all classes generation. </p>
+<p>You can change the default values inside <code>src/sass/base/_vars.scss</code>.  You can define the width, the number of columns for your grid system as well as the gutter size on every media queries. The dedicated mixin will take care of all classes generation. </p>
 <pre><code class="lang-scss">// _vars.scss
 
+// Layout
+//============================================
+
+// XS
+$layout-gutter-xs: 16px;
+$layout-width-xs:  416px;
+
+// SM
+$layout-gutter-sm: 20px;
+$layout-width-sm:  728px;
+
+// MD
+$layout-gutter-md: 22px;
+$layout-width-md:  966px;
+
+// LG
+$layout-gutter-lg: 30px;
+$layout-width-lg:  1290px;
+
+// Grid
+//============================================
+
 $grid-columns: 24;
-
-$grid-config-xs: (
-  &quot;name&quot;: &quot;&quot;,
-  &quot;cols&quot;: $grid-columns,
-  &quot;gutter&quot;: 16px,
-  &quot;bp&quot;: false,
-  &quot;off&quot;: false,
-  &quot;pull&quot;: false,
-  &quot;push&quot;: false
-);
-
-$grid-config-sm: (
-  &quot;name&quot;: &quot;sm&quot;,
-  &quot;cols&quot;: $grid-columns,
-  &quot;gutter&quot;: 20px,
-  &quot;bp&quot;: $bp-sm,
-  &quot;off&quot;: true,
-  &quot;pull&quot;: true,
-  &quot;push&quot;: true
-);
-
-$grid-config-md: (
-  &quot;name&quot;: &quot;md&quot;,
-  &quot;cols&quot;: $grid-columns,
-  &quot;gutter&quot;: 22px,
-  &quot;bp&quot;: $bp-md,
-  &quot;off&quot;: true,
-  &quot;pull&quot;: true,
-  &quot;push&quot;: true
-);
-
-$grid-config-lg: (
-  &quot;name&quot;: &quot;lg&quot;,
-  &quot;cols&quot;: $grid-columns,
-  &quot;gutter&quot;: 30px,
-  &quot;bp&quot;: $bp-lg,
-  &quot;off&quot;: true,
-  &quot;pull&quot;: true,
-  &quot;push&quot;: true
-);
 </code></pre>
 <p>But lets see how we can use these generated classes. To create a grid you have to wrap all grid units in a <code>.g-row</code> class:</p>
 <pre><code class="lang-html">&lt;div class=&quot;g-row&quot;&gt;
@@ -75,11 +57,11 @@ $grid-config-lg: (
 <p>If the columns need to change depeneding on the screen size you can use a <strong>width key</strong> in the class name.</p>
 <p>The default keys are:</p>
 <ul>
-<li><code>-sm-</code> Small screens start at a browser width of 768px</li>
+<li><code>-sm-</code> Small screens start at a browser width of 728px</li>
 <li><code>-md-</code> Medium screens start at a browser width of 966px</li>
 <li><code>-lg-</code> Large screens start at a browser width of 1290px</li>
 </ul>
-<p>You can change them always inside <code>_vars.scss</code>.</p>
+<p>As mention above you can change these values inside <code>_vars.scss</code>.</p>
 <p>If no <strong>width key</strong> is given the rule will apply from 0px onward. See the example below to get a better impression:</p>
 <pre><code class="lang-html">&lt;div class=&quot;g-row&quot;&gt;
   &lt;div class=&quot;g g-12 g-sm-8 g-md-4 g-lg-2&quot;&gt;
