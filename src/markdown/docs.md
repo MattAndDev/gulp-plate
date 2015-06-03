@@ -147,23 +147,19 @@ The grid system includes offset classes to create spacing:
 </div>
 ```
 
-
-#### Clearing floats
-...
-
 ## Utility classes
 
-These classes provide a fast way to create new layouts without much effort. All utility classes, with the exception of headings, are prefixed with `.u-`. Most utility classes are responsive which means that you can combine them with a **width key** (`-sm-`, `-md-`, `-lg-`) to target different screen sizes.
+These classes provide a fast way to create new layouts without much effort. All utility classes are prefixed with `.u-`. Utility classes are responsive which means that you can combine them with a **width key** (`-sm-`, `-md-`, `-lg-`) to target different screen sizes.
 
 ### Dimensions
 
-Dimension utilities help you handle whitespace between elements. Classnames are composed by:
+Dimensions utilities help you handle whitespace between elements. Classnames are composed by:
 
 - utility prefix `.u-`
 - width key `sm-`, `md-` or `lg-`
 - property name `push-`, `pull-` or `padd-`
 - property position `top-`, `rgt-`, `btm-`, `lft-`, `horz-` or `vert-`
-- property value `none`, `quarter`, `half`, `double`
+- property value `none`, `quarter`, `half` or `double`
 
 The base dimesion `$space` is defined as always in the `_vars.scss`. The default value is 24px.
 
@@ -186,48 +182,109 @@ When not defined the **property value** is equal to the base dimension `$space`,
 </div>
 ```
 
-### Overflow (missing)
+### Display
+
+Display utilities allow you to easily set the display property among `none`, `block`, `inline` or `inline-block`.
 
 - utility prefix `.u-`
 - width key `sm-`, `md-` or `lg-`
-- property-name `overflow-`
-- property-value `hide` or `scroll`
+- property-value `hide`, `blk`, `inl` or `ibl`
 
 ```html
-<div class="u-sm-overflow-scroll u-overflow-hide">
-  Content will make it's parent have a scrollbar if it is to large on small screens
-
-  Content will not overflow the parent if it is too large on screens that are not small
+<div class="u-hide u-sm-blk u-md-ibl">
+  Element will be display none on mobile
+  Element will be display block on small screens
+  Element will be display inline block on larger screens
 </div>
 ```
 
-Keep in mind that when using `u-overflow-scroll` a height needs to be defined to work properly.
+### Text
 
-### Float (missing)
+Text utilities help you define alignment, color, weight, capitalization of your typography.
 
-- utility prefix `.u-`
-- width key `sm-`, `md-` or `lg-`
-- property-name `float-`
-- property-value `rgt`, `lft` or `none`
-
-### Images (missing)
-
-### Show/hide (missing)
-
-### Show only for screen readers (missing)
-
-### Clear (missing)
-
-### Clearfix (missing)
-
-### Headings (missing)
-
-### Font weight (missing light and ultra-bold)
+#### Alignment
 
 - utility prefix `.u-`
 - width key `sm-`, `md-` or `lg-`
-- property-name `fw-`
+- property name `ta`
+- property-value `lft`, `rgt`, `center`
+
+```html
+<div class="u-ta-center">
+  Text is always center aligned
+</div>
+
+<div class="u-md-ta-center">
+  Text is center aligned from medium sized screens onward
+</div>
+
+<div class="u-sm-ta-center u-lg-ta-lft">
+  Text is center aligned on small (and medium) screens
+  Text is left aligned on large screens
+</div>
+```
+
+#### Color
+
+- utility prefix `.u-`
+- width key `sm-`, `md-` or `lg-`
+- property name `c-`
+- property-value `primary` or `text`
+
+```html
+<h1 class="u-c-primary">
+  Heading set with the primary color
+</h1>
+<p class="u-c-text">
+  Paragraph set with the text color
+</p>
+```
+
+As for the other values, `$primary` and `$text` color are defined in the `_vars.scss`.
+
+#### Weight
+
+- utility prefix `.u-`
+- width key `sm-`, `md-` or `lg-`
+- property name `fw-`
 - property-value `normal`, `semi` or `bold`
+
+```html
+<h1 class="u-fw-bold u-md-fw-semi u-lg-fw-normal">
+  Heading font weight bold on small screens
+  Heading font weight semibold on medium screens
+  Heading font weight normal on large screens
+</h1>
+```
+
+#### Capitalization
+
+- utility prefix `.u-`
+- width key `sm-`, `md-` or `lg-`
+- property name `tt-`
+- property-value `uppercase`
+
+```html
+<span class="u-tt-uppercase">
+  Uppercase span element
+</span>
+```
+
+Another text utility available in Gulp Plate is the **truncate utility**. What is does basically is truncating the text after the first line adding ellipsis at the end of it.
+
+For example this:
+
+```html
+<p class="u-truncate">
+  Mixtape Shoreditch XOXO, lomo vegan pour-over chillwave. Intelligentsia locavore hella, plaid raw denim swag before they sold out. Kickstarter scenester cray fixie.
+</p>
+```
+
+will result like this:
+
+<p class="u-truncate">
+  Mixtape Shoreditch XOXO, lomo vegan pour-over chillwave. Intelligentsia locavore hella, plaid raw denim swag before they sold out. Kickstarter scenester cray fixie.
+</p>
 
 
 
