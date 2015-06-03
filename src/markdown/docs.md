@@ -200,7 +200,7 @@ Display utilities allow you to easily set the display property among `none`, `bl
 
 ### Text
 
-Text utilities help you define alignment, color, weight, capitalization of your typography.
+Text utilities help you define alignment, color, weight, capitalization and truncate of your typography.
 
 #### Alignment
 
@@ -270,7 +270,9 @@ As for the other values, `$primary` and `$text` color are defined in the `_vars.
 </span>
 ```
 
-Another text utility available in Gulp Plate is the **truncate utility**. What is does basically is truncating the text after the first line adding ellipsis at the end of it.
+#### Truncate
+
+Another text utility available in Gulp Plate is the truncate utility. What is does basically is truncating the text after the first line break adding ellipsis at the end of the truncated line.
 
 For example this:
 
