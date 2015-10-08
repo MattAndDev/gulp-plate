@@ -1,4 +1,7 @@
+
 **N.B.** We are working on a in-depth Gulp Plate Documentation. You can look at the [preview](http://arillo.github.io/gulp-plate-docs/) or follow the basic introcution here below. Watch this repository to get notified when the docs will be ready. Enjoy your meal!
+
+**This is the ES2015 version of gulp-plate**
 
 ![Gulp Plate](http://turbo.aminalhazwani.com.s3.amazonaws.com/github/gulp-plate.png)
 
@@ -12,8 +15,8 @@ Includes the following tools, tasks, and workflows:
 - [CoffeeScript](http://coffeescript.org/) (with source maps!)
 - [BrowserSync](http://browsersync.io) for live reloading and a static server
 - [Image optimization](https://www.npmjs.com/package/gulp-imagemin)
-- [Javascript linting](http://jshint.com/)
-- [Coffeescript linting](http://www.coffeelint.org/)
+- [Javascript linting](http://eslint.org/)
+- [ES2015 transpilation](https://babeljs.io/)
 - Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
 - Shimming non common-js vendor code with other dependencies (like a jQuery plugin)
 - Svg icon sprite generation using [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite)
@@ -151,7 +154,7 @@ This does not work if the `@import` is scoped inside a class like this:
 }
 
 // use in main.js
-var plugin = require('plugin');
+import plugin from ('plugin');
 
 plugin();
 
@@ -179,17 +182,6 @@ var myScript = require('myScript');
 var myScript = require('./ui/myScript');
 
 ```
-
-## JavaScript Tests with Karma
-
-This repo includes a basic js testing setup with the following: [Karma](http://karma-runner.github.io/0.12/index.html), [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/), and [Sinon](http://sinonjs.org/). There is `karma` gulp task, which the `production` task uses to run the tests before compiling. If any tests fail, the `production` task will abort.
-
-To run the tests and start monitoring files:
-```
-./node_modules/karma/bin/karma start
-```
-
-Want to just run `karma start`? Either add `alias karma="./node_modules/karma/bin/karma"` to your shell config or install the karma command line interface globally with `npm install -g karma-cli`.
 
 ## Known issues
 

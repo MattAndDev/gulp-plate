@@ -49,8 +49,7 @@ module.exports = {
   },
 
   jslint: {
-    srcJs: src + '/js/**/*.js',
-    srcCoffee: src + '/js/**/*.coffee'
+    srcJs: src + '/js/**/*.js'
   },
 
   production: {
@@ -105,11 +104,11 @@ module.exports = {
     // A separate bundle will be generated for each
     // bundle config in the list below
     bundleConfigs: [{
-      entries: src + '/js/main.coffee',
+      entries: src + '/js/main.js',
       dest: dest + '/js',
       outputName: 'main.js',
       // Additional file extentions to make optional
-      extensions: ['.coffee'],
+      extensions: ['.js'],
       // list of modules to make require-able externally
       require: ['jquery']
       // old: require: ['jquery', 'backbone/node_modules/underscore']
