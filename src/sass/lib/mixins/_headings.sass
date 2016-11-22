@@ -2,7 +2,17 @@
 // Headings
 //============================================
 
-// @TODO document mixin usage & API
+// Needed global vars
+//============================================
+
+$breakpoints: ()
+$h1: ()
+$h2: ()
+$h3: ()
+$h4: ()
+$h5: ()
+$h6: ()
+
 
 // Default / Common
 //============================================
@@ -19,67 +29,79 @@
   word-break: break-word // 1.
 
 
+// Sizes procesors
+//============================================
+
+// See `lib/_vars.sass`
+
+=h-size-styles($size-map)
+  @if length($size-map)
+
+    font-size: map-get($size-map, "fs")
+    line-height: map-get($size-map, "lh")
+
+    @each $key, $val in $size-map
+      @if type-of($val) == "map"
+        +mq("(min-width: #{map-get($breakpoints, $key)})")
+          font-size: map-get($val, "fs")
+          line-height: map-get($val, "lh")
+
+
 // H1
 //============================================
 
 =h1($common-styles: false)
-  @if $common-styles
+  @if $common-styles and length($h1)
     +h-common-styles
 
-  font-size: $fs-h1
-  line-height: $lh-h1
+  +h-size-styles($h1)
 
 
 // H2
 //============================================
 
 =h2($common-styles: false)
-  @if $common-styles
+  @if $common-styles and length($h2)
     +h-common-styles
 
-  font-size: $fs-h2
-  line-height: $lh-h2
+  +h-size-styles($h2)
 
 
 // H3
 //============================================
 
 =h3($common-styles: false)
-  @if $common-styles
+  @if $common-styles and length($h3)
     +h-common-styles
 
-  font-size: $fs-h3
-  line-height: $lh-h3
+  +h-size-styles($h3)
 
 
 // H4
 //============================================
 
 =h4($common-styles: false)
-  @if $common-styles
+  @if $common-styles and length($h4)
     +h-common-styles
 
-  font-size: $fs-h4
-  line-height: $lh-h4
+  +h-size-styles($h4)
 
 
 // H5
 //============================================
 
 =h5($common-styles: false)
-  @if $common-styles
+  @if $common-styles and length($h5)
     +h-common-styles
 
-  font-size: $fs-h5
-  line-height: $lh-h5
+  +h-size-styles($h5)
 
 
 // H6
 //============================================
 
 =h6($common-styles: false)
-  @if $common-styles
+  @if $common-styles and length($h6)
     +h-common-styles
 
-  font-size: $fs-h6
-  line-height: $lh-h6
+  +h-size-styles($h6)
