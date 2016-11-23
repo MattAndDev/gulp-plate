@@ -14,15 +14,15 @@
 
 $i-map: (
   {{#shapes}}
-  {{name}}-width: {{#rem}}{{width.outer}}{{/rem}},
-  {{name}}-height: {{#rem}}{{height.outer}}{{/rem}}{{^last}},{{/last}}
+  {{name}}-width: {{rem width}},
+  {{name}}-height: {{rem height}}{{^last}},{{/last}}
 
   {{/shapes}}
 );
 
 {{#shapes}}.i-{{name}} {
-  width: {{#rem}}{{width.outer}}{{/rem}};
-  height: {{#rem}}{{height.outer}}{{/rem}};
+  width: {{rem width}};
+  height: {{rem height}};
 }
 
 {{/shapes}}

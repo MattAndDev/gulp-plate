@@ -5,7 +5,9 @@
 #}
 
 {% extends 'layouts/application.html' %}
+{% from 'macros/helpers.html' import icon %}
 
 {% block content %}
   <h1>Hello World! {{title}}</h1>
+  {{ icon('facebook') }}
 {% endblock %}
