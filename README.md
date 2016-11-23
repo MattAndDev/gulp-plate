@@ -97,23 +97,6 @@ myProject/
 
 All paths and plugin settings have been abstracted into a centralized config object in `./gulpfile.js/config.js`. Adapt the paths and settings to the structure and needs of your project.
 
-__Sprite config__
-
-Set what type of sprite generation you want to use: (`symbol` is the default)
-
-```javascript
-...
-svgSprite: {
-  type: 'symbol' // set to 'symbol' or 'css'
-  ...
-}
-...
-
-```
-
-- __`'symbol'`__ creates a SVG image that can be used to reference icons with the `<use>` tag.
-- __`'css'`__ creates a SVG sprite that can be used as a background image in css.
-
 __Generic move task__
 
 There is a generic task to move assets from the source directory without transformations, e.g. font files. To use is add the paths to the `move` array in the config file:
